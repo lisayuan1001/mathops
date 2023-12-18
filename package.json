@@ -1,0 +1,23 @@
+{
+  "name": "node-web-app-with-tests",
+  "version": "1.0.0",
+  "description": "A Node.js web app with Jest tests and Express",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lisayuan1001/mathops"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "jest": "^27.0.0",
+    "supertest": "^6.1.3"
+  }
+}

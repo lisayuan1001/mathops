@@ -1,0 +1,44 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math Operations</title>
+  </head>
+  <body>
+    <h1>Math Operations</h1>
+    <form id="mathForm">
+      <input type="number" id="a" required />
+      <select id="operation">
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+        <option value="multiply">Multiply</option>
+        <option value="divide">Divide</option>
+      </select>
+      <input type="number" id="b" required />
+      <button type="submit">Calculate</button>
+    </form>
+    <p>Result: <span id="result"></span></p>
+
+    <script>
+      document
+        .getElementById("mathForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const a = parseFloat(document.getElementById("a").value);
+          const operation = document.getElementById("operation").value;
+          const b = parseFloat(document.getElementById("b").value);
+
+          const response = await fetch("/calculate", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ operation, a, b }),
+          });
+
+          const data = await response.json();
+          document.getElementById("result").textContent = data.result;
+        });
+    </script>
+  </body>
+</html>
