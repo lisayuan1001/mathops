@@ -14,7 +14,7 @@ app.post("/calculate", (req, res) => {
     let result;
     switch (operation) {
       case "add":
-        result = mathOperations.add(a, b);
+        result = mathOperations.substract(a, b);
         break;
       case "subtract":
         result = mathOperations.subtract(a, b);
